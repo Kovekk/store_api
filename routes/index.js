@@ -1,12 +1,36 @@
-const router = require('express').Router();
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('../swagger-output.json');
+const router = require('express').Router()
+const passport = require('passport')
 
-// home route (current does nothing)
-router.get('/', (req, res) => {res.send('Hello World')});
+router.use('/', require('./swagger'))
 
-// swagger route
-router.use('/api-docs', swaggerUi.serve);
-router.get('/api-docs', swaggerUi.setup(swaggerDocument)); 
+router.use('/employees', require('./employees'))
 
-module.exports = router;
+router.use('/clients', require('./clients'))
+
+
+
+
+router.get('/login', passport.authenticate('github'), (req, res) => {})
+
+router.get('/logout', function(req, res, next) {
+    req.logout(function(err) {
+        if (err) {
+            return next(err)
+        }
+        req.session.destroy(function(err) {
+            if (err) {
+                return next(err)
+            }
+            
+            // Clear the session cookie
+            res.clearCookie('connect.sid')
+            console.log('After destroyed session:', req.session)
+
+            // Redirection only after the destruction the session 
+            res.status(200).send('Logout carried out successfully')
+        });
+    });
+});
+
+
+module.exports = router
