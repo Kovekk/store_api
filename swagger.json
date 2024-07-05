@@ -1,5 +1,5 @@
 {
-  "swagger": "3.0",
+  "swagger": "2.0",
   "info": {
     "title": "Store API",
     "description": "Create, update, get, and delete store data through this API.",
@@ -8,29 +8,9 @@
   "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "https, http"
+    "http"
   ],
   "paths": {
-    "/login": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/logout": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api-docs": {
       "get": {
         "description": "",
@@ -373,7 +353,7 @@
       },
       "delete": {
         "tags": [
-          "clients"
+          "Clients"
         ],
         "description": "",
         "parameters": [

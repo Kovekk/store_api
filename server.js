@@ -43,15 +43,15 @@ app.use(cors({ origin: '*' }))
 // Routes
 app.use('/', require('./routes/index'))
 
-// passport.use(new GitHubStrategy({
-//     clientID: process.env.GITHUB_CLIENT_ID,
-//     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-//     callbackURL: process.env.CALLBACK_URL
-// },
-// function(accessToken, refreshToken, profile, done) {
-//     // console.log('GitHub profile:', profile)
-//     return done(null, profile)
-// }))
+passport.use(new GitHubStrategy({
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: process.env.CALLBACK_URL
+},
+function(accessToken, refreshToken, profile, done) {
+    // console.log('GitHub profile:', profile)
+    return done(null, profile)
+}))
 
 passport.serializeUser((user, done) => {
     // console.log('Serialize user:', user)

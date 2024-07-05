@@ -6,18 +6,18 @@ const { isAuthenticated } = require('../middleware/authenticate.js')
 
 
 // Get all clients
-router.get('/', clientController.getAll)
+router.get('/', isAuthenticated, clientController.getAll)
 
 // Get only one client
-router.get('/:id', clientController.getSingle)
+router.get('/:id', isAuthenticated, clientController.getSingle)
 
 // Add new clients
-router.post('/', clientsValidation, validate, clientController.createClient)
+router.post('/', isAuthenticated, clientsValidation, validate, clientController.createClient)
 
 // Update one client
-router.put('/:id', clientsValidation, validate, clientController.updateClient)
+router.put('/:id', isAuthenticated, clientsValidation, validate, clientController.updateClient)
 
 // Delete one client
-router.delete('/:id', clientController.deleteClient)
+router.delete('/:id', isAuthenticated, clientController.deleteClient)
 
 module.exports = router
