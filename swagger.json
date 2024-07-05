@@ -10,6 +10,17 @@
   "schemes": [
     "http"
   ],
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "authorizationUrl": "https://example.com/oauth/authorize",
+      "flow": "implicit",
+      "scopes": {
+        "write:store": "Modify store data",
+        "read:store": "Read store data"
+      }
+    }
+  },
   "paths": {
     "/api-docs": {
       "get": {
@@ -18,7 +29,12 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["read:store"]
+          }
+        ]
       }
     },
     "/employees/": {
@@ -26,7 +42,7 @@
         "tags": [
           "Employees"
         ],
-        "description": "",
+        "description": "Retrieve a list of employees.",
         "produces": [
           "application/json"
         ],
@@ -37,43 +53,65 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["read:store"]
+          }
+        ]
       },
       "post": {
         "tags": [
           "Employees"
         ],
-        "description": "",
+        "description": "Create a new employee.",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Employee data to be created.",
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "First name of the employee.",
+                  "example": "John"
                 },
                 "lastName": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Last name of the employee.",
+                  "example": "Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Email address of the employee.",
+                  "example": "john.doe@example.com"
                 },
                 "phone": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Phone number of the employee.",
+                  "example": "+123456789"
                 },
                 "position": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Position of the employee in the company.",
+                  "example": "Software Engineer"
                 },
                 "salary": {
-                  "example": "any"
+                  "type": "number",
+                  "description": "Salary of the employee.",
+                  "example": 60000
                 },
                 "hire_date": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Hire date of the employee.",
+                  "example": "2023-01-01"
                 },
                 "department": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Department where the employee works.",
+                  "example": "Engineering"
                 }
               }
             }
@@ -89,7 +127,12 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["write:store"]
+          }
+        ]
       }
     },
     "/employees/{id}": {
@@ -97,7 +140,7 @@
         "tags": [
           "Employees"
         ],
-        "description": "",
+        "description": "Retrieve a specific employee by ID.",
         "produces": [
           "application/json"
         ],
@@ -106,7 +149,8 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID of the employee to retrieve."
           }
         ],
         "responses": {
@@ -119,49 +163,72 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["read:store"]
+          }
+        ]
       },
       "put": {
         "tags": [
           "Employees"
         ],
-        "description": "",
+        "description": "Update an existing employee by ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID of the employee to update."
           },
           {
             "name": "body",
             "in": "body",
+            "description": "Employee data to be updated.",
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "First name of the employee.",
+                  "example": "John"
                 },
                 "lastName": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Last name of the employee.",
+                  "example": "Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Email address of the employee.",
+                  "example": "john.doe@example.com"
                 },
                 "phone": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Phone number of the employee.",
+                  "example": "+123456789"
                 },
                 "position": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Position of the employee in the company.",
+                  "example": "Software Engineer"
                 },
                 "salary": {
-                  "example": "any"
+                  "type": "number",
+                  "description": "Salary of the employee.",
+                  "example": 60000
                 },
                 "hire_date": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Hire date of the employee.",
+                  "example": "2023-01-01"
                 },
                 "department": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Department where the employee works.",
+                  "example": "Engineering"
                 }
               }
             }
@@ -177,19 +244,25 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["write:store"]
+          }
+        ]
       },
       "delete": {
         "tags": [
           "Employees"
         ],
-        "description": "",
+        "description": "Delete an employee by ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID of the employee to delete."
           }
         ],
         "responses": {
@@ -202,7 +275,12 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["write:store"]
+          }
+        ]
       }
     },
     "/clients/": {
@@ -210,7 +288,7 @@
         "tags": [
           "Clients"
         ],
-        "description": "",
+        "description": "Retrieve a list of clients.",
         "produces": [
           "application/json"
         ],
@@ -221,37 +299,55 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["read:store"]
+          }
+        ]
       },
       "post": {
         "tags": [
           "Clients"
         ],
-        "description": "",
+        "description": "Create a new client.",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Client data to be created.",
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "First name of the client.",
+                  "example": "Jane"
                 },
                 "lastName": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Last name of the client.",
+                  "example": "Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Email address of the client.",
+                  "example": "jane.doe@example.com"
                 },
                 "phone": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Phone number of the client.",
+                  "example": "+987654321"
                 },
                 "address": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Address of the client.",
+                  "example": "123 Main St"
                 },
                 "registered_at": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Registration date of the client.",
+                  "example": "2023-01-01"
                 }
               }
             }
@@ -267,7 +363,12 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["write:store"]
+          }
+        ]
       }
     },
     "/clients/{id}": {
@@ -275,7 +376,7 @@
         "tags": [
           "Clients"
         ],
-        "description": "",
+        "description": "Retrieve a specific client by ID.",
         "produces": [
           "application/json"
         ],
@@ -284,7 +385,8 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID of the client to retrieve."
           }
         ],
         "responses": {
@@ -297,43 +399,62 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["read:store"]
+          }
+        ]
       },
       "put": {
         "tags": [
           "Clients"
         ],
-        "description": "",
+        "description": "Update an existing client by ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID of the client to update."
           },
           {
             "name": "body",
             "in": "body",
+            "description": "Client data to be updated.",
             "schema": {
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "First name of the client.",
+                  "example": "Jane"
                 },
                 "lastName": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Last name of the client.",
+                  "example": "Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Email address of the client.",
+                  "example": "jane.doe@example.com"
                 },
                 "phone": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Phone number of the client.",
+                  "example": "+987654321"
                 },
                 "address": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Address of the client.",
+                  "example": "123 Main St"
                 },
                 "registered_at": {
-                  "example": "any"
+                  "type": "string",
+                  "description": "Registration date of the client.",
+                  "example": "2023-01-01"
                 }
               }
             }
@@ -349,19 +470,25 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["write:store"]
+          }
+        ]
       },
       "delete": {
         "tags": [
           "Clients"
         ],
-        "description": "",
+        "description": "Delete a client by ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID of the client to delete."
           }
         ],
         "responses": {
@@ -374,7 +501,12 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["write:store"]
+          }
+        ]
       }
     }
   }
