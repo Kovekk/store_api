@@ -1,0 +1,100 @@
+
+//**********************GET ALL************************
+ 
+// CLIENTS
+
+### Render
+
+GET https:
+
+### Local Host
+
+GET http://localhost:8080/clients
+ 
+//**********************GET ONE************************
+
+//CLIENTS
+
+### Render
+
+GET https:
+
+### Local Host
+
+GET http://localhost:8080/clients/6680671c6ca077a76797f90b
+ 
+//*******************POST***************************
+
+//CLIENTS
+
+### Render
+
+POST https:
+Content-Type: application/json
+ 
+{
+  "firstName": "Ralf",
+  "lastName": "Doe",
+  "email": "Ralf.doe@example.com",
+  "phone": "787156-2458",
+  "address": "Jorge Amado Avenue",
+  "registered_at": "07-15-2022"
+}
+ 
+### Local Host
+
+POST http://localhost:8080/clients
+Content-Type: application/json
+
+{
+  "firstName": "Ralf",
+  "lastName": "Doe",
+  "email": "Ralf.doe@example.com",
+  "phone": "787156-2458",
+  "address": "Jorge Amado Avenue",
+  "registered_at": "07-15-2022"
+}
+ 
+//******************UPDATE/PUT****************************
+
+//CLIENTS
+
+### Render
+
+PUT https:
+Content-Type: application/json
+ 
+{
+  "firstName": "Ralf",
+  "lastName": "Doe",
+  "email": "Ralf.doe@example.com",
+  "phone": "787156-2458",
+  "address": "Jorge Amado Avenue",
+  "registered_at": "07-15-2022"
+}
+ 
+### Local Host
+
+PUT http://localhost:8080/clients/6680671c6ca077a76797f90b
+Content-Type: application/json
+ 
+{
+  "firstName": "Ralf",
+  "lastName": "Doe",
+  "email": "Ralf.doe@example.com",
+  "phone": "787156-2458",
+  "address": "Jorge Amado Avenue",
+  "registered_at": "07-15-2022"
+}
+ 
+//******************DELETE****************************
+
+//CLIENTS
+
+### Render
+
+DELETE https:
+ 
+### Local Host
+
+DELETE http://localhost:8080/clients/6680671c6ca077a76797f90b

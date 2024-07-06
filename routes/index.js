@@ -7,9 +7,6 @@ router.use('/employees', require('./employees'))
 
 router.use('/clients', require('./clients'))
 
-
-
-
 router.get('/login', passport.authenticate('github'), (req, res) => {})
 
 router.get('/logout', function(req, res, next) {

@@ -5,18 +5,18 @@ const { employeesValidation, validate } = require('../middleware/validation.js')
 const { isAuthenticated } = require('../middleware/authenticate.js')
 
 // Get all employees
-router.get('/', employeeController.getAll)
+router.get('/', isAuthenticated, employeeController.getAll)
 
 // Get only one employee
-router.get('/:id', employeeController.getSingle)
+router.get('/:id', isAuthenticated, employeeController.getSingle)
 
 // Add new employee
-router.post('/',  employeesValidation, validate, employeeController.createEmployee)
+router.post('/',  isAuthenticated, employeesValidation, validate, employeeController.createEmployee)
 
 // Update one employee
-router.put('/:id',  employeesValidation, validate, employeeController.updateEmployee)
+router.put('/:id', isAuthenticated, employeesValidation, validate, employeeController.updateEmployee)
 
 // Delete one employee
-router.delete('/:id', employeeController.deleteEmployee)
+router.delete('/:id', isAuthenticated, employeeController.deleteEmployee)
 
 module.exports = router
