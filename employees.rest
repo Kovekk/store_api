@@ -1,0 +1,110 @@
+
+//**********************GET ALL************************
+ 
+//employees
+
+### Render
+
+GET https:
+
+### Local Host
+
+GET http://localhost:8080/employees
+ 
+//**********************GET ONE************************
+
+//EMPLOYEES
+
+### Render
+
+GET https:
+
+### Local Host
+
+GET http://localhost:8080/employees/6680677c6ca077a76797f90c
+ 
+//*******************POST***************************
+
+//EMPLOYEES
+
+### Render
+
+POST https:
+Content-Type: application/json
+ 
+{
+  "firstName": "Hugo",
+  "lastName": "Santos",
+  "email": "hugo@test.com",
+  "phone": "578896-2458",
+  "position": "Tarinee",
+  "salary": 1500,
+  "hire_date": "12-09-2023",
+  "department": "financial"
+}
+ 
+### Local Host
+
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+  "firstName": "Hugo",
+  "lastName": "Santos",
+  "email": "hugo@test.com",
+  "phone": "578896-2458",
+  "position": "Tarinee",
+  "salary": 1500,
+  "hire_date": "12-09-2023",
+  "department": "financial"
+}
+ 
+//******************UPDATE/PUT****************************
+
+//EMPLOYEES
+
+### Render
+
+PUT https:
+Content-Type: application/json
+ 
+{
+  "_id": "6671cee89434c5e61f052092",  
+  "firstName": "Hugo",
+  "lastName": "Santos",
+  "email": "hugo@test.com",
+  "phone": "578896-2458",
+  "position": "Tarinee",
+  "salary": 1500,
+  "hire_date": "12-09-2023",
+  "department": "financial"
+}
+ 
+### Local Host
+
+PUT http://localhost:8080/employees/6680677c6ca077a76797f90c
+Content-Type: application/json
+ 
+{
+  "_id": "6680677c6ca077a76797f90c",  
+  "firstName": "Hugo",
+  "lastName": "Santos",
+  "email": "hugo@test.com",
+  "phone": "578896-2458",
+  "position": "Tarinee",
+  "salary": 1500,
+  "hire_date": "12-09-2023",
+  "department": "financial"
+}
+ 
+//******************DELETE****************************
+
+//EMPLOYEES
+
+### Render
+
+DELETE https:
+ 
+### Local Host
+
+DELETE http://localhost:8080/employees/6680677c6ca077a76797f90c
