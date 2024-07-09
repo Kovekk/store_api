@@ -5,8 +5,8 @@ const doc = {
     title: 'Store API',
     description: 'Create, update, get, and delete store data through this API.'
   },
-  host: 'localhost:8080',
-  schemes: ['http']
+  host: 'https://store-api-6sgx.onrender.com',
+  schemes: ['http', 'https']
 };
 
 const outputFile = './swagger.json';

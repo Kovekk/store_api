@@ -5,7 +5,7 @@
 
 ### Render
 
-GET https:
+GET https://store-api-6sgx.onrender.com/employees
 
 ### Local Host
 
@@ -17,7 +17,7 @@ GET http://localhost:8080/employees
 
 ### Render
 
-GET https:
+GET https://store-api-6sgx.onrender.com/employees/6680677c6ca077a76797f90c
 
 ### Local Host
 
@@ -29,7 +29,7 @@ GET http://localhost:8080/employees/6680677c6ca077a76797f90c
 
 ### Render
 
-POST https:
+POST https://store-api-6sgx.onrender.com/employees
 Content-Type: application/json
  
 {
@@ -65,7 +65,7 @@ Content-Type: application/json
 
 ### Render
 
-PUT https:
+PUT https://store-api-6sgx.onrender.com/employees/6680677c6ca077a76797f90c
 Content-Type: application/json
  
 {
@@ -103,7 +103,7 @@ Content-Type: application/json
 
 ### Render
 
-DELETE https:
+DELETE https://store-api-6sgx.onrender.com/employees/6680677c6ca077a76797f90c
  
 ### Local Host
 
