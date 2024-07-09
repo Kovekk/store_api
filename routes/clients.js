@@ -21,3 +21,4 @@ router.put('/:id', isAuthenticated, clientsValidation, validate, clientControlle
 router.delete('/:id', isAuthenticated, clientController.deleteClient)
 
 module.exports = router
+
