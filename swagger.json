@@ -8,7 +8,7 @@
   "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "http", "https"
+    "https"
   ],
   "securityDefinitions": {
     "OAuth2": {
@@ -22,21 +22,6 @@
     }
   },
   "paths": {
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "OAuth2": ["read:store"]
-          }
-        ]
-      }
-    },
     "/employees/": {
       "get": {
         "tags": [
