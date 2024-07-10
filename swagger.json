@@ -5,11 +5,10 @@
     "description": "Create, update, get, and delete store data through this API.",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://store-api-6sgx.onrender.com",
   "basePath": "/",
   "schemes": [
-    "https",
-    "http"
+    "https"
   ],
   "securityDefinitions": {
     "OAuth2": {
