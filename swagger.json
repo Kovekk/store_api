@@ -85,9 +85,9 @@
                   "example": "Software Engineer"
                 },
                 "salary": {
-                  "type": "number",
+                  "type": "string",
                   "description": "Salary of the employee.",
-                  "example": 60000
+                  "example": "60000"
                 },
                 "hire_date": {
                   "type": "string",
@@ -202,9 +202,9 @@
                   "example": "Software Engineer"
                 },
                 "salary": {
-                  "type": "number",
+                  "type": "string",
                   "description": "Salary of the employee.",
-                  "example": 60000
+                  "example": "60000"
                 },
                 "hire_date": {
                   "type": "string",
