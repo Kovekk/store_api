@@ -8,7 +8,7 @@ exports.employeesValidation = [
     check('email', 'Please include a valid email.').isEmail().normalizeEmail({ gmail_remove_dots: true}),
     check('phone', 'Phone number is required.').not().isEmpty(),
     check('position', 'Position is required.').not().isEmpty(),
-    check('salary', 'Salary is required.').not().isEmpty(),
+    check('salary', 'Salary is required.').isNumeric(),
     check('hire_date', 'Hire date is required.').not().isEmpty(),
     check('department', 'Department is required.').not().isEmpty()
 ]
