@@ -5,7 +5,7 @@
 
 ### Render
 
-GET https://store-api-6sgx.onrender.com/clients
+GET https://store-api-ovl4.onrender.com/clients
 
 
 
@@ -19,7 +19,7 @@ GET http://localhost:8080/clients
 
 ### Render
 
-GET https://store-api-6sgx.onrender.com/clients/6680671c6ca077a76797f90b
+GET https://store-api-ovl4.onrender.com/clients/6680671c6ca077a76797f90b
 
 ### Local Host
 
@@ -31,7 +31,7 @@ GET http://localhost:8080/clients/6680671c6ca077a76797f90b
 
 ### Render
 
-POST https://store-api-6sgx.onrender.com/clients
+POST https://store-api-ovl4.onrender.com/clients
 Content-Type: application/json
  
 {
@@ -63,7 +63,7 @@ Content-Type: application/json
 
 ### Render
 
-PUT https://store-api-6sgx.onrender.com/clients/6680671c6ca077a76797f90b
+PUT https://store-api-ovl4.onrender.com/clients/6680671c6ca077a76797f90b
 Content-Type: application/json
  
 {
@@ -95,7 +95,7 @@ Content-Type: application/json
 
 ### Render
 
-DELETE https://store-api-6sgx.onrender.com/clients/6680671c6ca077a76797f90b
+DELETE https://store-api-ovl4.onrender.com/clients/6680671c6ca077a76797f90b
  
 ### Local Host
 

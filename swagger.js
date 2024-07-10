@@ -5,7 +5,7 @@ const doc = {
     title: 'Store API',
     description: 'Create, update, get, and delete store data through this API.'
   },
-  host: 'https://store-api-6sgx.onrender.com',
+  host: 'https://store-api-ovl4.onrender.com',
   schemes: ['https']
 };
 
