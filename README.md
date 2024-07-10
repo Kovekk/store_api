@@ -68,4 +68,4 @@ You can access the API documentation using Swagger UI at:
 
 or
 
-* https://store-api-6sgx.onrender.com/api-docs
+* https://store-api-ovl4.onrender.com/api-docs
