@@ -7,7 +7,7 @@ router.use('/employees', require('./employees'))
 
 router.use('/clients', require('./clients'))
 
-//router.use('/products', require('./products'))
+router.use('/products', require('./products'))
 
 router.use('/suppliers', require('./suppliers'))
 

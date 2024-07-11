@@ -25,7 +25,7 @@ exports.clientsValidation = [
 exports.productsValidation = [
     check('name', 'Name is required.').not().isEmpty(),
     check('description', 'Description is required.').not().isEmpty(),
-    check('price', 'Price is required in valid format.').isEmail().normalizeEmail({ gmail_remove_dots: true}),
+    check('price', 'Price is required in valid format.').not().isEmpty(),
     check('category', 'Category is required.').not().isEmpty(),
     check('stock_quantity', 'Quantity is required.').not().isEmpty(),
     check('supplier_id', 'Supplier id is required.').not().isEmpty()
