@@ -5,16 +5,16 @@
     "description": "Create, update, get, and delete store data through this API.",
     "version": "1.0.0"
   },
-  "host": "store-api-ovl4.onrender.com",
+  "host": "https://store-api-ovl4.onrender.com/",
   "basePath": "/",
   "schemes": [
-    "https",
-    "http"
+    "http",
+    "https"
   ],
   "securityDefinitions": {
     "OAuth2": {
       "type": "oauth2",
-      "authorizationUrl": "https://example.com/oauth/authorize",
+      "authorizationUrl": "/login",
       "flow": "implicit",
       "scopes": {
         "write:store": "Modify store data",
