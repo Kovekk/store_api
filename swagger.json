@@ -5,7 +5,7 @@
     "description": "Create, update, get, and delete store data through this API.",
     "version": "1.0.0"
   },
-  "host": "https://store-api-ovl4.onrender.com/",
+  "host": "https://store-api-ovl4.onrender.com",
   "basePath": "/",
   "schemes": [
     "http",
