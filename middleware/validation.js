@@ -21,6 +21,26 @@ exports.clientsValidation = [
     check('address', 'Address is required.').not().isEmpty(),
     check('registered_at', 'Registered at is required.').not().isEmpty(),
 ]
+// Products validations
+exports.productsValidation = [
+    check('name', 'Name is required.').not().isEmpty(),
+    check('description', 'Description is required.').not().isEmpty(),
+    check('price', 'Price is required in valid format.').not().isEmpty(),
+    check('category', 'Category is required.').not().isEmpty(),
+    check('stock_quantity', 'Quantity is required.').not().isEmpty(),
+    check('supplier_id', 'Supplier id is required.').not().isEmpty()
+]
+// Suppliers validations
+exports.suppliersValidation = [
+    check('name', 'Name of supplier is required.').not().isEmpty(),
+    check('contact_name', 'First name of contact is required.').not().isEmpty(),
+    check('email', 'Please include a valid email.').isEmail().normalizeEmail({ gmail_remove_dots: true}),
+    check('phone', 'Phone number is required.').not().isEmpty(),
+    check('address', 'Street address is required.').not().isEmpty(),
+    check('city', 'City is required.').not().isEmpty(),
+    check('country', 'Country is required.').not().isEmpty(),
+    check('products_supplied', 'Products list is required.').not().isEmpty()
+]
 
 // Middleware to handle validation results
 exports.validate = (req, res, next) => {

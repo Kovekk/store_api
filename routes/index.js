@@ -7,6 +7,10 @@ router.use('/employees', require('./employees'))
 
 router.use('/clients', require('./clients'))
 
+router.use('/products', require('./products'))
+
+router.use('/suppliers', require('./suppliers'))
+
 router.get('/login', passport.authenticate('github'), (req, res) => {})
 
 router.get('/logout', function(req, res, next) {
