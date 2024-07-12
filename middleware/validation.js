@@ -33,13 +33,13 @@ exports.productsValidation = [
 // Suppliers validations
 exports.suppliersValidation = [
     check('name', 'Name of supplier is required.').not().isEmpty(),
-    check('contact_name', 'First name of contact is required.').not().isEmpty(),
+    check('contactName', 'First name of contact is required.').not().isEmpty(),
     check('email', 'Please include a valid email.').isEmail().normalizeEmail({ gmail_remove_dots: true}),
     check('phone', 'Phone number is required.').not().isEmpty(),
     check('address', 'Street address is required.').not().isEmpty(),
     check('city', 'City is required.').not().isEmpty(),
     check('country', 'Country is required.').not().isEmpty(),
-    check('products_supplied', 'Products list is required.').not().isEmpty()
+    check('productsSupplied', 'Products list is required.').not().isEmpty()
 ]
 
 // Middleware to handle validation results
