@@ -1,7 +1,7 @@
 const mongodb = require("../utilities/database");
 const ObjectId = require("mongodb").ObjectId;
 
-const getAll = async (req, res) => {
+async function getAll(req, res) {
     //#swagger.tags=['Suppliers']
     try {
         const result = await mongodb
